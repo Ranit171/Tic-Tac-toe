@@ -80,7 +80,7 @@
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   cursor: pointer;
-  /* display: none; */
+  display: none;
 }
 
 .btn.active {
