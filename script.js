@@ -16,7 +16,7 @@ const winniPositions = [
   [2, 4, 6],
 ];
 
-// function to intialize the game
+// function to intialize the game/starting of the game
 function initGame() {
   currentPlayer = "X";
   gameGrid = ["", "", "", "", "", "", "", "", ""];
@@ -26,10 +26,23 @@ function initGame() {
 
 initGame();
 
+// function for changing x and o
+function swapTurn() {
+  if (currentPlayer === "X") {
+    currentPlayer = "O";
+  } else {
+    currentPlayer = "X";
+  }
+  //   UI Update
+  gameInfo.innerText = `Current Player - ${currentPlayer}`;
+}
+
+// function to handle the clicks of the user
 function handleClick(index) {
   if (gameGrid[index] === "") {
     boxes[index].innerText = currentPlayer;
     gameGrid[index] = currentPlayer;
+    swapTurn();
   }
 }
 
