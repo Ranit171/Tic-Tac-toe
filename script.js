@@ -1,6 +1,6 @@
 const boxes = document.querySelectorAll(".box");
-const gameInfo = dociment.querySelector(".game-info");
-const newGameBtn = dociment.querySelector(".btn");
+const gameInfo = document.querySelector(".game-info");
+const newGameBtn = document.querySelector(".btn");
 
 let currentPlayer;
 let gameGrid;
@@ -18,7 +18,23 @@ const winniPositions = [
 
 // function to intialize the game
 function initGame() {
-  currentPlayer = "x";
+  currentPlayer = "X";
   gameGrid = ["", "", "", "", "", "", "", "", ""];
   newGameBtn.classList.remove("active");
+  gameInfo.innerText = `Current Player - ${currentPlayer}`;
 }
+
+initGame();
+
+function handleClick(index) {
+  if (gameGrid[index] === "") {
+    boxes[index].innerText = currentPlayer;
+    gameGrid[index] = currentPlayer;
+  }
+}
+
+boxes.forEach((box, index) => {
+  box.addEventListener("click", () => {
+    handleClick(index);
+  });
+});
