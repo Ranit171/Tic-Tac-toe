@@ -42,7 +42,7 @@ function handleClick(index) {
   if (gameGrid[index] === "") {
     boxes[index].innerText = currentPlayer;
     gameGrid[index] = currentPlayer;
-    swapTurn();
+    swapTurn(); 
   }
 }
 
@@ -51,3 +51,5 @@ boxes.forEach((box, index) => {
     handleClick(index);
   });
 });
+
+newGameBtn.addEventListener("click",)
